@@ -35,6 +35,18 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(section => {
     observer.observe(section);
 });
+// Add an event listener to close the menu when a link is clicked
+navbar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuIcon.classList.remove('bx-x');
+      navbar.classList.remove('active');
+    });
+  });
+
+  // Sticky header
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('sticky', window.scrollY > 100);
+  });
 
 /*==================== sticky navbar ====================*/
 let header = document.querySelector('header');
